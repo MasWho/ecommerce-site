@@ -14,6 +14,8 @@ import styles from "./Home.module.css";
 import homeBanner from "../../assets/home-banner.jpg";
 import lounge1 from "../../assets/lounge1.jpg";
 
+// Store imports
+
 const DUMMY_DATA_LOUNGE = [
 	{
 		id: 'l1',

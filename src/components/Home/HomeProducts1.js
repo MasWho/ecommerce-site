@@ -9,14 +9,9 @@ const HomeProducts = ({products, onExpandCard, expandCard, expandCardID}) => {
 	const productCards = products.map(product => {
 		return <Card 
 			topText="New"
-			title={product.title}
-			price={`ZAR ${product.price}`}
-			hasStock={product.hasStock}
-			details={product.details}
-			img={product.img}
+			product={product}
 			width={'30%'}
 			key={`${product.title}-${product.id}`}
-			id={product.id}
 			onExpand={onExpandCard.bind(null, product.id)}
 			expandCard={expandCard}
 			expandCardID={expandCardID}
