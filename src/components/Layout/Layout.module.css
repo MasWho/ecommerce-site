@@ -1,0 +1,11 @@
+.main-body {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}

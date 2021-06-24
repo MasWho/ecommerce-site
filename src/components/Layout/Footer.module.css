@@ -1,0 +1,27 @@
+.footer-container {
+	width: 100%;
+	padding: 0 2.5% 0 2.5%;
+	margin: 2.5vh 0;
+}
+
+.footer-line {
+	height: 1px;
+	opacity: 0.3;
+	background-color: #7e7e7e;
+}
+
+.footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.footer p {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 0.8rem;
+	line-height: 1.2rem;
+	color: #7e7e7e;
+	margin: 0;
+}
