@@ -7,8 +7,10 @@ const authSlice = createSlice({
     initialState: {
         isLoggedIn: false,
         token: null,
+        uid: null,
         expirationTime: null,
-        initialLogoutTimer: null
+        initialLogoutTimer: null,
+        username: null,
     },
     reducers: {
         /**
@@ -17,10 +19,12 @@ const authSlice = createSlice({
          * @param {Object} action 
          */
         setAuth(state, action) {
-            state.token = action.payload.token;
-            state.isLoggedIn = !!action.payload.token;
-            state.expirationTime = action.payload.expirationTime;
-            state.initialLogoutTimer = action.payload.initialLogoutTimer;
+            state.token = action.payload.token || state.token;
+            state.isLoggedIn = !!action.payload.token || state.isLoggedIn;
+            state.expirationTime = action.payload.expirationTime || state.expirationTime;
+            state.initialLogoutTimer = action.payload.initialLogoutTimer || state.initialLogoutTimer;
+            state.uid = action.payload.uid || state.uid;
+            state.username = action.payload.username || state.username;
         },
 
         /**
@@ -32,6 +36,8 @@ const authSlice = createSlice({
             state.isLoggedIn = false;
             state.expirationTime = null;
             state.initialLogoutTimer = null;
+            state.uid = null;
+            state.username = null;
         }
     }
 });

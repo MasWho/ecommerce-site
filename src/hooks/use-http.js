@@ -1,5 +1,5 @@
 import { data } from "browserslist";
-import { useState } from "react"
+import { useState, useCallback } from "react"
 
 /**
  * Custom hook for making http requests using the Fetch API.
@@ -18,7 +18,7 @@ const useHttp = () => {
      * @param {Function} handleSuccessResponse 
      * @param {Function} handleErrorResponse 
      */
-    const request = async (url, params, handleSuccessResponse, handleErrorResponse) => {
+    const request = useCallback(async (url, params, handleSuccessResponse, handleErrorResponse) => {
         setLoading(true);
         setError(null);
 
@@ -46,7 +46,7 @@ const useHttp = () => {
         }
 
         setLoading(false);
-    };
+    }, []);
 
     return {
         loading: loading,

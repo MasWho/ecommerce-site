@@ -44,6 +44,7 @@ const AuthForm = ({ type }) => {
 	// Refs for holding input values
 	const emailRef = useRef();
 	const passwordRef = useRef();
+	const usernameRef = useRef();
 
 	// Store dispatcher
 	const dispatch = useDispatch();
@@ -77,20 +78,41 @@ const AuthForm = ({ type }) => {
 		event.preventDefault();
 		const enteredEmail = emailRef.current.value;
 		const enteredPassword = passwordRef.current.value;
+		const enteredUsername = !isLogin && usernameRef.current.value;
 
 		/**
 		 * Handle a successful auth api response from firebase.
 		 * Include persisting auth token and expiration time in browser localStorage.
 		 * @param {Object} data
 		 */
-		const loginResponseHandler = (data) => {
+		const loginResponseHandler = async (data) => {
 			const expirationTime = new Date(new Date().getTime() + data.expiresIn * 1000);
 			// Persist token and expiration details in local storage
 			localStorage.setItem("token", data.idToken);
+			localStorage.setItem("uid", data.localId);
 			localStorage.setItem("expirationTime", expirationTime.toISOString());
 
 			const remainingTime = calculateRemainingTime(expirationTime.toISOString());
 			const logoutTimer = setTimeout(logoutHandler, remainingTime);
+
+			const userDatabaseURL = `https://ecommerce-site-a5046-default-rtdb.europe-west1.firebasedatabase.app/users/${data.localId}.json`;
+
+			// Insert username into users db if it's a signup
+			if(!isLogin) {
+				request(
+					userDatabaseURL,
+					{
+						method: "PUT",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							name: enteredUsername,
+							email: data.email
+						})
+					}
+				);
+			}
 
 			// Update global state via redux store
 			dispatch(
@@ -98,6 +120,7 @@ const AuthForm = ({ type }) => {
 					token: data.idToken,
 					expirationTime: expirationTime.toISOString(),
 					initialLogoutTimer: logoutTimer,
+					uid: data.localId
 				})
 			);
 			// Redirect to home page
@@ -135,6 +158,11 @@ const AuthForm = ({ type }) => {
 		<section className={styles.auth}>
 			<h1>{isLogin ? "Login" : "Sign Up"}</h1>
 			<form onSubmit={submitHandler}>
+				{/* Username input */}
+				{!isLogin && <div className={styles.control}>
+					<label htmlFor="username">Your Username</label>
+					<input type="text" id="username" ref={usernameRef} required />
+				</div>}
         {/* Email input */}
 				<div className={styles.control}>
 					<label htmlFor="email">Your Email</label>

@@ -23,7 +23,7 @@
 	margin: 0;
 	padding: 0;
 	display: flex;
-	align-items: baseline;
+	align-items: flex-end;
 }
 
 .header li {
@@ -45,4 +45,13 @@
 .active {
 	border-bottom: 2px #DEB200 solid;
 	padding-bottom: 5px;
+}
+
+.username {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	gap: 10px;
+	font-family: 'Montserrat';
+	color: #DEB200;
 }

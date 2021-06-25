@@ -1,6 +1,8 @@
 // Global imports
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { IconContext } from "react-icons";
+import {BsFillPersonFill} from 'react-icons/bs';
 
 // Styles imports
 import styles from "./Navbar.module.css";
@@ -11,9 +13,11 @@ import { authActions } from "../../store/redux/auth-slice";
 /**
  * Navigational layout component for directing users to top level page routes.
  * Differentiates between pre login and post login nav items.
+ * @param {Bool} userLoading
+ * @param {Object} userError
  * @returns
  */
-const Navbar = () => {
+const Navbar = ({userLoading, userError}) => {
 	const authStates = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 
@@ -25,6 +29,14 @@ const Navbar = () => {
 		}
 		dispatch(authActions.clearAuth());
 	};
+
+	// Username icon
+	const userNameIcon = (
+		<IconContext.Provider value={{ size: "1.5em", color: "DEB200" }}>
+			<BsFillPersonFill />
+			{userLoading ? "loading..." : !userError && authStates.username}
+		</IconContext.Provider>
+	);
 
 	return (
 		<header className={styles.header}>
@@ -53,6 +65,9 @@ const Navbar = () => {
 						) : (
 							// Menu for post login
 							<>
+								<li className={styles.username}>
+									{userNameIcon}
+								</li>
 								<li>
 									<NavLink activeClassName={styles.active} to={"/products"}>
 										PRODUCTS

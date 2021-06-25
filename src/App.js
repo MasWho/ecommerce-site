@@ -16,6 +16,9 @@ import Layout from "./components/Layout/Layout";
 // Action creators
 import { authActions } from "./store/redux/auth-slice";
 
+// Hooks import
+import useHttp from './hooks/use-http';
+
 let logoutTimer;  // Global logoutTimer reference, can't set it in states due to infinite loop
 
 /**
@@ -38,17 +41,20 @@ const calculateRemainingTime = (expirationTime) => {
 const retrieveStoredToken = () => {
 	const storedToken = localStorage.getItem("token");
 	const expirationTime = localStorage.getItem("expirationTime");
+	const storedUid = localStorage.getItem("uid");
 	const remainingTime = calculateRemainingTime(expirationTime);  // In ms
 
 	// Remove token if it's about to expire
 	if (remainingTime <= 3600) {
 		localStorage.removeItem("token");
 		localStorage.removeItem("expirationTime");
+		localStorage.removeItem("uid");
 		return null;
 	}
 
 	return {
 		token: storedToken,
+		uid: storedUid,
 		duration: remainingTime,
 		expirationTime: expirationTime,
 	};
@@ -58,6 +64,8 @@ function App() {
 	
 	const dispatch = useDispatch();
 	const authStates = useSelector((state) => state.auth);
+
+	const {loading, error, request} = useHttp();
 	
 	// Retrieve token from local storage if page refreshed
 	const tokenData = retrieveStoredToken();
@@ -76,9 +84,11 @@ function App() {
 		// Also create another logout timer with updated remaining duration in ms
 		if (tokenData && tokenData.token) {
 			logoutTimer = setTimeout(logoutHandler, tokenData.duration);
+
 			dispatch(
 				authActions.setAuth({
 					token: tokenData.token,
+					uid: tokenData.uid,
 					expirationTime: tokenData.expirationTime,
           initialLogoutTimer: null  // This timer is only for initial reference from the AuthForm login
 				})
@@ -96,8 +106,30 @@ function App() {
 		}
 	}, [tokenData, dispatch, logoutHandler, authStates.initialLogoutTimer]);
 
+	// Get username and set it to states
+	useEffect(() => {
+		if(authStates.isLoggedIn && !authStates.username) {
+			request(
+				`https://ecommerce-site-a5046-default-rtdb.europe-west1.firebasedatabase.app/users/${authStates.uid}.json`,
+				{
+					method: 'GET',
+					headers: {
+						"Content-Type": "application/json",
+					}
+				},
+				(data) => {
+					dispatch(
+						authActions.setAuth({
+							username: data.name
+						})
+					);
+				}
+			);
+		}
+	}, [authStates.uid, authStates.isLoggedIn, request, dispatch, authStates.username]);
+
 	return (
-		<Layout>
+		<Layout userLoading={loading} userError={error}>
 			<Switch>
 				<Route path={"/"} component={HomePage} exact />
 				{!authStates.isLoggedIn ? (

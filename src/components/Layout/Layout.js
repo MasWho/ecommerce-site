@@ -11,12 +11,14 @@ import styles from "./Layout.module.css";
  * - Main body section of site
  * - Footer
  * @param {Object} children
+ * @param {Bool} userLoading
+ * @param {Object} userError
  * @returns
  */
-const Layout = ({ children }) => {
+const Layout = ({ children, userLoading, userError }) => {
 	return (
 		<div className={styles['page-container']}>
-			<Navbar />
+			<Navbar userLoading={userLoading} userError={userError}/>
 			<main className={styles["main-body"]}>{children}</main>
 			<Footer />
 		</div>
