@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { IconContext } from "react-icons";
 import {BsFillPersonFill} from 'react-icons/bs';
 
+// Component imports
+import HeaderCartButton from './HeaderCartButton';
+
 // Styles imports
 import styles from "./Navbar.module.css";
 
@@ -33,8 +36,14 @@ const Navbar = ({userLoading, userError}) => {
 	// Username icon
 	const userNameIcon = (
 		<IconContext.Provider value={{ size: "1.5em", color: "DEB200" }}>
-			<BsFillPersonFill />
-			{userLoading ? "loading..." : !userError && authStates.username}
+			<div style={{
+				display: 'flex',
+				alignItems: 'center',
+				gap: '0.5em'
+			}}>
+				<BsFillPersonFill />
+				{userLoading ? "loading..." : !userError && authStates.username}
+			</div>
 		</IconContext.Provider>
 	);
 
@@ -82,6 +91,9 @@ const Navbar = ({userLoading, userError}) => {
 									<Link to={"/"} onClick={logoutHandler}>
 										LOGOUT
 									</Link>
+								</li>
+								<li>
+									<HeaderCartButton />
 								</li>
 							</>
 						)

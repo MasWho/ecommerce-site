@@ -1,12 +1,12 @@
 // Styles imports
-import styles from "./Card.module.css";
+import styles from "./ProductCard.module.css";
+
+// Component imports
+import ProductItemForm from "./ProductItemForm";
 
 // Global imports
 import { BsThreeDots } from "react-icons/bs";
 import { IconContext } from "react-icons";
-import { MdAddShoppingCart } from "react-icons/md";
-import { useContext } from "react";
-import CartContext from "../../store/context/cart-context";
 
 /**
  * Card UI component to render products.
@@ -20,8 +20,6 @@ import CartContext from "../../store/context/cart-context";
  * @returns
  */
 const Card = ({ topText, product, height, width, onExpand, expandCard, expandCardID }) => {
-	// Cart context
-	const cartCtx = useContext(CartContext);
 
 	let expandStyles = styles["expand-container"];
 	if (expandCard && product.id === expandCardID) {
@@ -57,11 +55,7 @@ const Card = ({ topText, product, height, width, onExpand, expandCard, expandCar
 							<span>{product.hasStock ? "In Stock" : "Out of Stock"}</span>
 						</div>
 					</div>
-					<IconContext.Provider value={{ size: "3em", color: "DEB200" }}>
-						<button onClick={cartCtx.addItem.bind(null, product)}>
-							<MdAddShoppingCart />
-						</button>
-					</IconContext.Provider>
+					<ProductItemForm product={product} />
 				</div>
 			</div>
 			{/* Expand detail section */}

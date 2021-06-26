@@ -1,5 +1,5 @@
 // Component imports
-import Card from "../UI/Card";
+import ProductCard from "../Products/ProductCard";
 
 // Styles imports
 import styles from './Home.module.css';
@@ -7,7 +7,7 @@ import styles from './Home.module.css';
 const HomeProducts = ({products, onExpandCard, expandCard, expandCardID}) => {
 
 	const productCards = products.map(product => {
-		return <Card 
+		return <ProductCard 
 			topText="New"
 			product={product}
 			width={'30%'}

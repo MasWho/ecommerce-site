@@ -37,13 +37,12 @@ const cartReducer = (state, action) => {
     // Check to see if item is existing, if it is, then increase the amount for that item
     if(existingItemIndex === -1) {
       const updatedItem = {
-        ...action.payload,
-        amount: 1
+        ...action.payload
       };
       updatedItems = state.items.concat(updatedItem);
     } else {
       updatedItems = [...state.items];
-      updatedItems[existingItemIndex].amount = updatedItems[existingItemIndex].amount + 1;
+      updatedItems[existingItemIndex].amount = updatedItems[existingItemIndex].amount + action.payload.amount;
     }
     
     return {
