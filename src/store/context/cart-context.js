@@ -11,8 +11,10 @@ import { useSelector } from "react-redux";
 // Default states for context
 const defaultCartState = {
   items: [],
-  totalAmount: 0,
+  totalPrice: 0,
   cartIsOpen: false,
+  openCart: () => {},
+  closeCart: () => {},
   addItem: () => {},
   removeItem: () => {},
   reset: () => {}
@@ -29,6 +31,22 @@ const CartContext = createContext(defaultCartState);
  * @param {Object} action 
  */
 const cartReducer = (state, action) => {
+
+  // Action for opening the cart
+  if(action.type === "OPEN_CART") {
+    return {
+      ...state,
+      cartIsOpen: true
+    };
+  }
+
+  // Action for closing the cart
+  if(action.type === "CLOSE_CART") {
+    return {
+      ...state,
+      cartIsOpen: false
+    };
+  }
   
   // Action for adding a item, or multiple items to cart
   if(action.type === "ADD_ITEM") {
@@ -44,12 +62,42 @@ const cartReducer = (state, action) => {
       updatedItems = [...state.items];
       updatedItems[existingItemIndex].amount = updatedItems[existingItemIndex].amount + action.payload.amount;
     }
+
+    const totalPrice = updatedItems
+      .map(item => item.amount * item.price)
+      .reduce((acc, val) => acc + val);
     
     return {
+      ...state,
       items: updatedItems,
-      totalAmount: updatedItems.length
+      totalPrice: totalPrice
     }
   }
+
+  // Action for removing an item
+  if(action.type === "REMOVE_ITEM") {
+    const existingItemIndex = state.items.findIndex(item => item.id === action.payload);
+    
+    let updatedItems = [...state.items];
+    let totalPrice = state.totalPrice;
+    // If the product amount is reduced to 0, then remove it from the cart
+    if(updatedItems[existingItemIndex].amount === 1) {
+      updatedItems = updatedItems.filter(item => item.id !== action.payload);
+      totalPrice = 0;
+    } else {
+      updatedItems[existingItemIndex].amount = updatedItems[existingItemIndex].amount - 1;
+      totalPrice = updatedItems
+        .map(item => item.amount * item.price)
+        .reduce((acc, val) => acc + val);
+    }
+
+    return {
+      ...state,
+      items: updatedItems,
+      totalPrice: totalPrice
+    }
+  }
+
   return defaultCartState;
 };
 
@@ -68,6 +116,19 @@ export const CartContextProvider = ({children}) => {
 
   const [cartState, cartDispatch] = useReducer(cartReducer, defaultCartState);
 
+  /**
+   * Open the cart using the OPEN_CART reducer action.
+   */
+  const openCartHandler = () => {
+    cartDispatch({type: "OPEN_CART"});
+  };
+
+  /**
+   * Close the cart using the CLOSE_CART reducer action.
+   */
+  const closeCartHandler = () => {
+    cartDispatch({type: "CLOSE_CART"});
+  };
 
   /**
    * Add item to cart. If the user is not logged in, redirect to signup page.
@@ -86,8 +147,16 @@ export const CartContextProvider = ({children}) => {
     })
   };
 
-
-  const removeItemHandler = () => {};
+  /**
+   * Remove an item from cart based on product id.
+   * @param {String} id 
+   */
+  const removeItemHandler = (id) => {
+    cartDispatch({
+      type: 'REMOVE_ITEM', 
+      payload: id
+    })
+  };
 
 
   const resetCartHandler = () => {};
@@ -96,8 +165,10 @@ export const CartContextProvider = ({children}) => {
   // Cart context values to be passed down to children
   const cartContext = {
     items: cartState.items,
-    totalAmount: cartState.totalAmount,
+    totalPrice: cartState.totalPrice,
     cartIsOpen: cartState.cartIsOpen,
+    openCart: openCartHandler,
+    closeCart: closeCartHandler,
     addItem: addItemHandler,
     removeItem: removeItemHandler,
     reset: resetCartHandler

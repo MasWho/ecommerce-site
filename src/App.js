@@ -1,5 +1,5 @@
 // Global imports
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useContext } from "react";
 import { Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,14 +10,18 @@ import ProductsPage from "./pages/ProductsPage";
 import ProfilePage from "./pages/ProfilePage";
 import ErrorPage from "./pages/ErrorPage";
 
-// Layout imports
+// Component imports
 import Layout from "./components/Layout/Layout";
+import Cart from "./components/Cart/Cart";
 
 // Action creators
 import { authActions } from "./store/redux/auth-slice";
 
 // Hooks import
 import useHttp from './hooks/use-http';
+
+// Store imports
+import CartContext from './store/context/cart-context';
 
 let logoutTimer;  // Global logoutTimer reference, can't set it in states due to infinite loop
 
@@ -64,6 +68,9 @@ function App() {
 	
 	const dispatch = useDispatch();
 	const authStates = useSelector((state) => state.auth);
+
+	// Cart context
+	const cartCtx = useContext(CartContext);
 
 	const {loading, error, request} = useHttp();
 	
@@ -151,6 +158,8 @@ function App() {
 				)}
 				<Route path={"*"} component={ErrorPage} />
 			</Switch>
+			{/* Cart modal */}
+			{cartCtx.cartIsOpen && <Cart />}
 		</Layout>
 	);
 }

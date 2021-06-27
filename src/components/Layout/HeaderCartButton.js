@@ -12,10 +12,9 @@ import CartContext from '../../store/context/cart-context';
 
 /**
  * Cart button in Navbar for opening the cart modal.
- * @param {Function} onClick
  * @returns 
  */
-const HeaderCartButton = ({onClick}) => {
+const HeaderCartButton = () => {
 
     const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);  // For highlighting items being added to cart
     
@@ -46,7 +45,7 @@ const HeaderCartButton = ({onClick}) => {
     }, [items]);
 
     return (
-        <button className={btnStyles.join(" ")} onClick={() => {}}>
+        <button className={btnStyles.join(" ")} onClick={cartCtx.openCart}>
             <span className={styles.icon}>
                 <CartIcon />
             </span>
