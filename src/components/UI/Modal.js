@@ -19,11 +19,12 @@ const Backdrop = ({onClick}) => {
 /**
  * The actual overlay for the modal.
  * @param {Object} children 
+ * @param {Object} style
  * @returns 
  */
-const ModalOverlay = ({children}) => {
+const ModalOverlay = ({children, style}) => {
     return (
-        <div className={styles.modal}>
+        <div className={styles.modal} style={{...style}}>
             <div className={styles.content}>{children}</div>
         </div>
     );
@@ -33,13 +34,14 @@ const ModalOverlay = ({children}) => {
  * Wrapper component for creating a modal with backdrop using portal.
  * @param {Object} children 
  * @param {Function} onClickBackdrop 
+ * @param {Object} style 
  * @returns 
  */
-const Modal = ({children, onClickBackdrop}) => {
+const Modal = ({children, onClickBackdrop, style}) => {
     return ReactDom.createPortal(
         <>
           <Backdrop onClick={onClickBackdrop}/>
-          <ModalOverlay>{children}</ModalOverlay>
+          <ModalOverlay style={style}>{children}</ModalOverlay>
         </>,
         modalElement
     );

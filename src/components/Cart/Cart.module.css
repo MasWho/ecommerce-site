@@ -3,9 +3,19 @@
 	list-style: none;
 	margin: 0;
 	padding: 0 5%;
-	max-height: 30em;
+	height: 65vh;
 	overflow-y: auto;
 	overflow-x: hidden;
+}
+
+.no-items {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 5%;
+	height: 77vh;
+	text-align: center;
+	font-size: 1.5rem;
 }
 
 .total {
@@ -14,8 +24,8 @@
 	align-items: center;
   font-family: 'Montserrat';
 	font-size: 1rem;
-	margin: 1rem 0;
 	padding: 0 30px;
+	height: 12vh;
 }
 
 .cart-items::-webkit-scrollbar-track
@@ -37,31 +47,41 @@
 
 /* Order submission section */
 .actions {
-	text-align: right;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 5%;
 }
 
 .actions button {
 	font: inherit;
 	cursor: pointer;
 	background-color: transparent;
-	border: 1px solid #8a2b06;
+	border: 1px solid #DEB200;
 	padding: 0.5rem 2rem;
-	border-radius: 25px;
-	margin-left: 1rem;
+	border-radius: 2px;
 }
 
 .actions button:hover,
 .actions button:active {
-	background-color: #5a1a01;
-	border-color: #5a1a01;
+	background-color: #f5cb21;
+	border-color: #f5cb21;
 	color: white;
 }
 
 .actions .button--alt {
-	color: #8a2b06;
+	color: #f5cb21;
 }
 
 .actions .button {
-	background-color: #8a2b06;
+	background-color: #DEB200;
 	color: white;
+}
+
+/* Success message */
+.success {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.7em;
 }

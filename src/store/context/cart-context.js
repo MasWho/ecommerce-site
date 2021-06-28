@@ -98,6 +98,14 @@ const cartReducer = (state, action) => {
     }
   }
 
+  // Action for resetting the cart
+  if(action.type === "RESET_CART") {
+    return {
+      ...defaultCartState,
+      cartIsOpen: true
+    };
+  }
+
   return defaultCartState;
 };
 
@@ -158,8 +166,14 @@ export const CartContextProvider = ({children}) => {
     })
   };
 
-
-  const resetCartHandler = () => {};
+  /**
+   * Reset the cart to default state.
+   */
+  const resetCartHandler = () => {
+    cartDispatch({
+      type: 'RESET_CART'
+    });
+  };
 
 
   // Cart context values to be passed down to children

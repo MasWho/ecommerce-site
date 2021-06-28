@@ -1,0 +1,90 @@
+.form {
+	height: 85vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
+}
+
+.control {
+  position: relative;
+	margin-bottom: 0.5rem;
+  width: 100%;
+  padding: 0 5%;
+}
+
+.control label {
+  position: absolute;
+  top: 0;
+  opacity: 0.5;
+  font-size: 1rem;
+	font-family: 'Montserrat';
+	margin-bottom: 0.5rem;
+	display: block;
+  transition: all 0.2s ease-out;
+}
+
+.focused label {
+  position: absolute;
+  top: -1.8rem;
+  opacity: 1;
+  font-size: 1.1rem;
+	font-family: 'Montserrat';
+	margin-bottom: 0.5rem;
+	display: block;
+}
+
+.control input {
+	font: inherit;
+  border: none;
+	border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+
+.control input:focus {
+	outline: none;
+}
+
+.actions {
+	display: flex;
+  padding: 0 5%;
+  width: 100%;
+	justify-content: space-between;
+}
+
+.actions button {
+	font: inherit;
+	cursor: pointer;
+	background-color: transparent;
+	border: 1px solid #DEB200;
+	padding: 0.5rem 2rem;
+	border-radius: 2px;
+}
+
+.actions button:hover,
+.actions button:active {
+	background-color: #f5cb21;
+	border-color: #f5cb21;
+	color: white;
+}
+
+.actions .submit {
+	background-color: #DEB200;
+	color: white;
+}
+
+.actions .submit:hover,
+.actions .submit:active {
+	background-color: #f5cb21;
+}
+
+.invalid label {
+	color: #ca3e51;
+}
+
+/* .invalid input {
+	border-color: #aa0b20;
+	background-color: #ffeff1;
+} */
