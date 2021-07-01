@@ -6,6 +6,7 @@ import TabsContainer from "../UI/TabsContainer";
 import HomeProducts1 from "./HomeProducts1";
 import HomeProducts2 from "./HomeProducts2";
 import HomeProducts3 from "./HomeProducts3";
+import Spinner from "../UI/Spinner";
 
 // Styles import
 import styles from "./Home.module.css";
@@ -15,96 +16,42 @@ import homeBanner from "../../assets/home-banner.jpg";
 import lounge1 from "../../assets/lounge1.jpg";
 
 // Store imports
-
-const DUMMY_DATA_LOUNGE = [
-	{
-		id: 'l1',
-		title: "Lounge 1",
-		price: 17.99,
-		hasStock: true,
-		details: `This is the product details for Lounge 1, the price is just right`,
-		img: lounge1,
-	},
-	{
-		id: 'l2',
-		title: "Lounge 2",
-		price: 17.99,
-		hasStock: true,
-		details: `This is the product details for Lounge 2, the price is just right`,
-		img: lounge1,
-	},
-	{
-		id: 'l3',
-		title: "Lounge 3",
-		price: 17.99,
-		hasStock: true,
-		details: `This is the product details for Lounge 3, the price is just right`,
-		img: lounge1,
-	},
-];
-
-const DUMMY_DATA_BEDROOM = [
-	{
-		id: 'b1',
-		title: "Bedroom 1",
-		price: 17.99,
-		hasStock: true,
-		details: `This is the product details for Bedroom 1, the price is just right`,
-		img: lounge1,
-	},
-	{
-		id: 'b2',
-		title: "Bedroom 2",
-		price: 17.99,
-		hasStock: true,
-		details: `This is the product details for Bedroom 2, the price is just right`,
-		img: lounge1,
-	},
-	{
-		id: 'b3',
-		title: "Bedroom 3",
-		price: 17.99,
-		hasStock: true,
-		details: `This is the product details for Bedroom 3, the price is just right`,
-		img: lounge1,
-	},
-];
-
-const DUMMY_DATA_DINING = [
-	{
-		id: 'd1',
-		title: "Dining 1",
-		price: 17.99,
-		hasStock: true,
-		details: `This is the product details for Dining 1, the price is just right`,
-		img: lounge1,
-	},
-	{
-		id: 'd2',
-		title: "Dining 2",
-		price: 17.99,
-		hasStock: true,
-		details: `This is the product details for Dining 2, the price is just right`,
-		img: lounge1,
-	},
-	{
-		id: 'd3',
-		title: "Dining 3",
-		price: 17.99,
-		hasStock: true,
-		details: `This is the product details for Dining 3, the price is just right`,
-		img: lounge1,
-	},
-];
+import useHttp from '../../hooks/use-http';
 
 const Home = () => {
 	const [applyStyle, setApplyStyle] = useState(false);
 	const [expandCard, setExpandCard] = useState(false);
 	const [expandCardID, setExpandCardID] = useState(null);
+	const [productData, setProductData] = useState(null);
+
+	const {loading, error, request} = useHttp();
 
 	useEffect(() => {
 		setApplyStyle(true);
 	}, []);
+
+	// Get all products from product catalog in db
+	useEffect(() => {
+		console.log("GEt")
+		request(
+			"https://ecommerce-site-a5046-default-rtdb.europe-west1.firebasedatabase.app/products.json",
+			{
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				}
+			},
+			(data) => {
+				const modifiedData = {...data};
+				for(const cat in modifiedData) {
+					for(const product of modifiedData[cat]) {
+						product.img = lounge1;
+					}
+				}
+				setProductData(modifiedData)
+			}
+		)
+	}, [request]);
 
 	/**
 	 * Handle card detail expansion click event
@@ -143,13 +90,14 @@ const Home = () => {
 			</div>
 
 			{/* Product Tabs */}
-			<TabsContainer
+			{loading && <Spinner />}
+			{!loading && !error && productData && <TabsContainer
         onChangeTab={resetCards}
 				components={{
 					lounge: {
 						title: "Lounge",
 						component: <HomeProducts1 
-              products={DUMMY_DATA_LOUNGE} 
+              products={productData['lounge']} 
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
               expandCardID={expandCardID} 
@@ -158,7 +106,7 @@ const Home = () => {
 					bedroom: {
 						title: "Bedroom",
 						component: <HomeProducts2 
-              products={DUMMY_DATA_BEDROOM} 
+              products={productData['bedroom']} 
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
               expandCardID={expandCardID} 
@@ -167,14 +115,14 @@ const Home = () => {
 					dining: {
 						title: "Dining",
 						component: <HomeProducts3 
-              products={DUMMY_DATA_DINING} 
+              products={productData['dining']} 
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
               expandCardID={expandCardID} 
             />,
 					},
 				}}
-			/>
+			/>}
 		</div>
 	);
 };

@@ -1,0 +1,89 @@
+{
+  "lounge": [
+    {
+      "id": "l1",
+      "title": "Lounge 1",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l2",
+      "title": "Lounge 2",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l2",
+      "title": "Lounge 2",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    }
+  ],
+  "bedroom": [
+    {
+      "id": "b1",
+      "title": "Bedroom 1",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Bedroom 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "b2",
+      "title": "Bedroom 2",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Bedroom 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "b3",
+      "title": "Bedroom 3",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Bedroom 3, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    }
+  ],
+  "dining": [
+    {
+      "id": "d1",
+      "title": "Dining 1",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Dining 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "d2",
+      "title": "Dining 2",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Dining 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "d3",
+      "title": "Dining 3",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Dining 3, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 // Global imports
 import React, { useRef, useState, useContext } from "react";
+import { useSelector } from "react-redux";
 
 // Style imports
 import styles from "./Checkout.module.css";
@@ -11,7 +12,6 @@ import useHttp from "../../hooks/use-http";
 import CartContext from "../../store/context/cart-context";
 
 // Component imports
-import Spinner from "../../components/UI/Spinner";
 
 /**
  * Input component for checkout form.
@@ -64,6 +64,8 @@ const Checkout = ({ onCancel, onSubmit }) => {
 
 	const { loading, error, request } = useHttp();
 
+	const uid = useSelector(state => state.auth.uid);
+
   // State to check if all form inputs are valid
 	const [formInputsValid, setFormInputsValid] = useState({
 		name: true,
@@ -111,12 +113,30 @@ const Checkout = ({ onCancel, onSubmit }) => {
 			return;
 		}
 
+		// Save cart items as order in database
+		/**
+		 * Data format: 
+		 * 
+		 * orders: {
+		 * 		uid: {
+		 * 			order_id: {
+		 * 				details: {
+		 * 					city,
+		 * 					name,
+		 * 					postalCode,
+		 * 					street
+		 * 				},
+		 * 				orderedItems: [item...]
+		 * 			}...
+		 * 		}...
+		 * }
+		 */
 		request(
-		  "https://ecommerce-site-a5046-default-rtdb.europe-west1.firebasedatabase.app/orders.json",
+		  `https://ecommerce-site-a5046-default-rtdb.europe-west1.firebasedatabase.app/orders/${uid}.json`,
 		  {
 		    method: "POST",
 		    body: JSON.stringify({
-		      user: {
+		      details: {
 		        name: nameValue,
 		        street: streetValue,
 		        city: cityValue,
