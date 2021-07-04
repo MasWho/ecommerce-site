@@ -7,7 +7,7 @@
       "hasStock": true,
       "details": "This is the product details for Lounge 1, the price is just right",
       "tags": [],
-      "img": "lounge1"
+      "img": "lounge1.png"
     },
     {
       "id": "l2",
@@ -19,8 +19,89 @@
       "img": "lounge1"
     },
     {
-      "id": "l2",
-      "title": "Lounge 2",
+      "id": "l3",
+      "title": "Lounge 3",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l4",
+      "title": "Lounge 4",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l5",
+      "title": "Lounge 5",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l6",
+      "title": "Lounge 6",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l7",
+      "title": "Lounge 7",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l8",
+      "title": "Lounge 8",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l9",
+      "title": "Lounge 9",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l10",
+      "title": "Lounge 10",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l11",
+      "title": "Lounge 11",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l12",
+      "title": "Lounge 12",
       "price": 17.99,
       "hasStock": true,
       "details": "This is the product details for Lounge 2, the price is just right",
@@ -30,58 +111,220 @@
   ],
   "bedroom": [
     {
-      "id": "b1",
-      "title": "Bedroom 1",
+      "id": "l1",
+      "title": "Lounge 1",
       "price": 17.99,
       "hasStock": true,
-      "details": "This is the product details for Bedroom 1, the price is just right",
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1.png"
+    },
+    {
+      "id": "l2",
+      "title": "Lounge 2",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
       "tags": [],
       "img": "lounge1"
     },
     {
-      "id": "b2",
-      "title": "Bedroom 2",
+      "id": "l3",
+      "title": "Lounge 3",
       "price": 17.99,
       "hasStock": true,
-      "details": "This is the product details for Bedroom 2, the price is just right",
+      "details": "This is the product details for Lounge 2, the price is just right",
       "tags": [],
       "img": "lounge1"
     },
     {
-      "id": "b3",
-      "title": "Bedroom 3",
+      "id": "l4",
+      "title": "Lounge 4",
       "price": 17.99,
       "hasStock": true,
-      "details": "This is the product details for Bedroom 3, the price is just right",
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l5",
+      "title": "Lounge 5",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l6",
+      "title": "Lounge 6",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l7",
+      "title": "Lounge 7",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l8",
+      "title": "Lounge 8",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l9",
+      "title": "Lounge 9",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l10",
+      "title": "Lounge 10",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l11",
+      "title": "Lounge 11",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l12",
+      "title": "Lounge 12",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
       "tags": [],
       "img": "lounge1"
     }
   ],
   "dining": [
     {
-      "id": "d1",
-      "title": "Dining 1",
+      "id": "l1",
+      "title": "Lounge 1",
       "price": 17.99,
       "hasStock": true,
-      "details": "This is the product details for Dining 1, the price is just right",
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1.png"
+    },
+    {
+      "id": "l2",
+      "title": "Lounge 2",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
       "tags": [],
       "img": "lounge1"
     },
     {
-      "id": "d2",
-      "title": "Dining 2",
+      "id": "l3",
+      "title": "Lounge 3",
       "price": 17.99,
       "hasStock": true,
-      "details": "This is the product details for Dining 2, the price is just right",
+      "details": "This is the product details for Lounge 2, the price is just right",
       "tags": [],
       "img": "lounge1"
     },
     {
-      "id": "d3",
-      "title": "Dining 3",
+      "id": "l4",
+      "title": "Lounge 4",
       "price": 17.99,
       "hasStock": true,
-      "details": "This is the product details for Dining 3, the price is just right",
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l5",
+      "title": "Lounge 5",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l6",
+      "title": "Lounge 6",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l7",
+      "title": "Lounge 7",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l8",
+      "title": "Lounge 8",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l9",
+      "title": "Lounge 9",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l10",
+      "title": "Lounge 10",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 1, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l11",
+      "title": "Lounge 11",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
+      "tags": [],
+      "img": "lounge1"
+    },
+    {
+      "id": "l12",
+      "title": "Lounge 12",
+      "price": 17.99,
+      "hasStock": true,
+      "details": "This is the product details for Lounge 2, the price is just right",
       "tags": [],
       "img": "lounge1"
     }

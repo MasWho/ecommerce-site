@@ -7,6 +7,7 @@ import ProductItemForm from "./ProductItemForm";
 // Global imports
 import { BsThreeDots } from "react-icons/bs";
 import { IconContext } from "react-icons";
+import { Link } from "react-router-dom";
 
 /**
  * Card UI component to render products.
@@ -19,7 +20,7 @@ import { IconContext } from "react-icons";
  * @param {Number} expandCardID
  * @returns
  */
-const Card = ({ topText, product, height, width, onExpand, expandCard, expandCardID }) => {
+const ProductCard = ({ topText, product, height, width, onExpand, expandCard, expandCardID }) => {
 
 	let expandStyles = styles["expand-container"];
 	if (expandCard && product.id === expandCardID) {
@@ -47,23 +48,29 @@ const Card = ({ topText, product, height, width, onExpand, expandCard, expandCar
 					<img src={product.img} alt="" />
 				</div>
 				{/* Bottom section */}
-				<div className={styles["bot-container"]}>
-					<div className={styles["info-container"]}>
-						<h2>{product.title}</h2>
-						<div className={styles["price-stock"]}>
-							<span>{`ZAR ${product.price}`}</span>
-							<span>{product.hasStock ? "In Stock" : "Out of Stock"}</span>
+				<div 
+					className={[expandCard && product.id === expandCardID ? styles["move-up"] : styles["move-down"]].join(" ")}
+					style={{position: 'relative'}}
+				>
+					<div className={styles["bot-container"]}>
+						<div className={styles["info-container"]}>
+							<h2>{product.title}</h2>
+							<div className={styles["price-stock"]}>
+								<span>{`ZAR ${product.price}`}</span>
+								<span>{product.hasStock ? "In Stock" : "Out of Stock"}</span>
+							</div>
 						</div>
+						<ProductItemForm product={product} />
 					</div>
-					<ProductItemForm product={product} />
+					{/* Expand detail section */}
+					<div className={expandStyles}>
+						<p>{product.details}</p>
+						<Link to="/" className={styles['details-link']}><div className={styles.play}/>Click to learn more</Link>
+					</div>
 				</div>
-			</div>
-			{/* Expand detail section */}
-			<div className={expandStyles}>
-				<p>{product.details}</p>
 			</div>
 		</div>
 	);
 };
 
-export default Card;
+export default ProductCard;

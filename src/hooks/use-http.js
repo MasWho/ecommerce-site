@@ -38,7 +38,7 @@ const useHttp = () => {
             }
 
             // If response is okay and no errors, then successful request
-            handleSuccessResponse && handleSuccessResponse(data);
+            handleSuccessResponse && await handleSuccessResponse(data);
         } catch (error) {
             // Handle error if specified
             handleErrorResponse && handleErrorResponse(data);

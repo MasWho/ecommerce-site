@@ -6,7 +6,7 @@ import styles from './Spinner.module.css';
  */
 const Spinner = ({style}) => {
     return (
-        <div style={style || {width: "100%", height: "100%", textAlign: "center"}}>
+        <div style={{...style, display: "flex", alignItems: "center", justifyContent: "center"}}>
             <div className={styles["lds-ripple"]}>
                 <div>
                 </div>

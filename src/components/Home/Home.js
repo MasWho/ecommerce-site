@@ -1,5 +1,5 @@
 // Global import
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useContext } from "react";
 
 // Component imports
 import TabsContainer from "../UI/TabsContainer";
@@ -13,12 +13,15 @@ import styles from "./Home.module.css";
 
 // Assets import
 import homeBanner from "../../assets/home-banner.jpg";
-import lounge1 from "../../assets/lounge1.jpg";
 
-// Store imports
+// Custom hooks imports
 import useHttp from '../../hooks/use-http';
 
+// Store imports
+import FirebaseContext from "../../store/context/firebase-context";
+
 const Home = () => {
+
 	const [applyStyle, setApplyStyle] = useState(false);
 	const [expandCard, setExpandCard] = useState(false);
 	const [expandCardID, setExpandCardID] = useState(null);
@@ -26,13 +29,32 @@ const Home = () => {
 
 	const {loading, error, request} = useHttp();
 
+	const firebaseCtx = useContext(FirebaseContext);
+
+	/**
+	 * Get all product images from firebase storage.
+	 * The link is specified in the img property of each product, which links to unique storage objects.
+	 */
+	const getAllProductImages = useCallback(async (data) => {
+		const modifiedData = {...data};
+		for(const cat in modifiedData) {
+			for(const product of modifiedData[cat]) {
+				try {
+					product.img = await firebaseCtx.storageRef.child(product.img).getDownloadURL();
+				} catch (error) {
+					product.img = ""; // TODO: Create asset for no product image
+				}
+			}
+		}
+		return modifiedData;
+	}, [firebaseCtx.storageRef]);
+
 	useEffect(() => {
 		setApplyStyle(true);
 	}, []);
 
 	// Get all products from product catalog in db
 	useEffect(() => {
-		console.log("GEt")
 		request(
 			"https://ecommerce-site-a5046-default-rtdb.europe-west1.firebasedatabase.app/products.json",
 			{
@@ -41,17 +63,12 @@ const Home = () => {
 					"Content-Type": "application/json",
 				}
 			},
-			(data) => {
-				const modifiedData = {...data};
-				for(const cat in modifiedData) {
-					for(const product of modifiedData[cat]) {
-						product.img = lounge1;
-					}
-				}
+			async (data) => {
+				const modifiedData = await getAllProductImages(data);
 				setProductData(modifiedData)
 			}
 		)
-	}, [request]);
+	}, [request, getAllProductImages]);
 
 	/**
 	 * Handle card detail expansion click event
@@ -90,7 +107,7 @@ const Home = () => {
 			</div>
 
 			{/* Product Tabs */}
-			{loading && <Spinner />}
+			{loading && <Spinner style={{height: "70vh"}}/>}
 			{!loading && !error && productData && <TabsContainer
         onChangeTab={resetCards}
 				components={{
