@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Banner section */
+.banner {
+  width: 100%;
+  height: 25vh;
+  position: relative;
+}
+
+.banner img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.banner-text {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  font-family: 'Montserrat';
+  color: #1B2039;
+  text-transform: capitalize;
+  animation: appear 1s linear;
+}
+
+@keyframes appear {
+  0% {opacity: 0; display: none;}
+  100% {opacity: 1; display: block;}
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 11%;
+  column-gap: 2.5%;
+  row-gap: 2.5%;
+  grid-template-columns: repeat(3, 31.67%);
+  opacity: 1;
+  animation: fadeIn 1s linear;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0.2;}
+  100% {opacity: 1;}
+}

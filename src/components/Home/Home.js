@@ -1,5 +1,5 @@
 // Global import
-import { useEffect, useState, useCallback, useContext } from "react";
+import { useEffect, useState } from "react";
 
 // Component imports
 import TabsContainer from "../UI/TabsContainer";
@@ -14,71 +14,20 @@ import styles from "./Home.module.css";
 // Assets import
 import homeBanner from "../../assets/home-banner.jpg";
 
-// Custom hooks imports
-import useHttp from '../../hooks/use-http';
-
 // Store imports
-import FirebaseContext from "../../store/context/firebase-context";
+import useProducts from "../../hooks/use-products";
 
 const Home = () => {
 
 	const [applyStyle, setApplyStyle] = useState(false);
 	const [expandCard, setExpandCard] = useState(false);
 	const [expandCardID, setExpandCardID] = useState(null);
-	const [productData, setProductData] = useState(null);
 
-	const {loading, error, request} = useHttp();
-
-	const firebaseCtx = useContext(FirebaseContext);
-
-	/**
-	 * Get all product images from firebase storage.
-	 * The link is specified in the img property of each product, which links to unique storage objects.
-	 */
-	const getAllProductImages = useCallback(async (data) => {
-		const modifiedData = {...data};
-		for(const cat in modifiedData) {
-			for(const product of modifiedData[cat]) {
-				try {
-					product.img = await firebaseCtx.storageRef.child(product.img).getDownloadURL();
-				} catch (error) {
-					product.img = ""; // TODO: Create asset for no product image
-				}
-			}
-		}
-		return modifiedData;
-	}, [firebaseCtx.storageRef]);
+	const {loading, error, productData} = useProducts('home');
 
 	useEffect(() => {
 		setApplyStyle(true);
 	}, []);
-
-	// Get all products from product catalog in db
-	useEffect(() => {
-		request(
-			"https://ecommerce-site-a5046-default-rtdb.europe-west1.firebasedatabase.app/products.json",
-			{
-				method: "GET",
-				headers: {
-					"Content-Type": "application/json",
-				}
-			},
-			async (data) => {
-				// Filter for new products for the home page only
-				const filteredData = {};
-				for(const cat in data) {
-					filteredData[cat] = [];
-					for(const product of data[cat]) {
-						if(product.new) {
-							filteredData[cat].push(product);
-						}
-					}
-				}
-				const modifiedData = await getAllProductImages(filteredData);
-				setProductData(modifiedData)
-			}
-		)
-	}, [request, getAllProductImages]);
 
 	/**
 	 * Handle card detail expansion click event

@@ -12,6 +12,7 @@ import styles from "./TabsContainer.module.css";
  * 		}
  * }
  * @param {Object} components
+ * @param {Function} onChangeTab
  * @returns
  */
 const TabsContainer = ({ components, onChangeTab }) => {
@@ -33,7 +34,7 @@ const TabsContainer = ({ components, onChangeTab }) => {
 				className={activeTab === tabID ? styles.active : null} 
 				onClick={() => {
 					changeTabHandler(tabID);
-					onChangeTab();
+					onChangeTab(tabID);
 				}}
 				key={`tab-${tabID}-${idx}`}
 			>
