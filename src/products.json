@@ -2,331 +2,367 @@
   "lounge": [
     {
       "id": "l1",
-      "title": "Lounge 1",
-      "price": 17.99,
+      "title": "Pia TV stand",
+      "price": 1700,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1.png"
+      "details": "A stylish boho chic tv stand that comes with a lot of storage space. Perfect for a modern and unique space.",
+      "tags": ["TV stand"],
+      "img": "lounge1.png",
+      "new": true
     },
     {
       "id": "l2",
-      "title": "Lounge 2",
-      "price": 17.99,
+      "title": "Sophia coffee table",
+      "price": 1800,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "A sleek wooden coffee table brings classic earthy tones to a room. This comes as a two piece set.",
+      "tags": ["Coffee table"],
+      "img": "lounge2.png",
+      "new": false
     },
     {
       "id": "l3",
-      "title": "Lounge 3",
-      "price": 17.99,
+      "title": "Rei TV stand",
+      "price": 2000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "A gorgeous maple wood TV stand that is large enough for a family sized lounge. It's able tos store all gaming equipment, TV accessories and more.",
+      "tags": ["TV stand"],
+      "img": "lounge3.png",
+      "new": false
     },
     {
       "id": "l4",
-      "title": "Lounge 4",
-      "price": 17.99,
+      "title": "Daisy arm chair and side table",
+      "price": 1800,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "A fantastic art deco suede arm chair in a trendy pink colour. This is perfect for an artistic space and comes with a cute side table, perfect for your coffee cup.",
+      "tags": ["Arm chair"],
+      "img": "lounge4.png",
+      "new": false
     },
     {
       "id": "l5",
-      "title": "Lounge 5",
-      "price": 17.99,
+      "title": "Lisa coffee table",
+      "price": 1500,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "A elegant marble top two piece coffee table. This works perfectly in a modern scandanavian styled home and comes with an interesting wooden base.",
+      "tags": ["Coffee table"],
+      "img": "lounge5.png",
+      "new": false
     },
     {
       "id": "l6",
-      "title": "Lounge 6",
-      "price": 17.99,
+      "title": "Lea arm chair and side table",
+      "price": 2200,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "This is the ultimate modern piece to add to your lounge and comes with chich side table that can store décor or books.",
+      "tags": ["Arm chair"],
+      "img": "lounge6.png",
+      "new": true
     },
     {
       "id": "l7",
-      "title": "Lounge 7",
-      "price": 17.99,
+      "title": "Sandra couch, coffee table and ottomons",
+      "price": 8000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our classic boho chic lounge set is a gorgeous set to come home to on daily basis. This set boasts comfort and style.",
+      "tags": ["Lounge set"],
+      "img": "lounge7.png",
+      "new": false
     },
     {
       "id": "l8",
-      "title": "Lounge 8",
-      "price": 17.99,
+      "title": "Rhea couch",
+      "price": 4500,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our stylish orange couch is one of our most modern pieces and is perfect for your New York themed apartment or house. This is the ultimate in style.",
+      "tags": ["Couch"],
+      "img": "lounge8.png",
+      "new": true
     },
     {
       "id": "l9",
-      "title": "Lounge 9",
-      "price": 17.99,
+      "title": "Taylor couch",
+      "price": 3000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our comfy Rhea couch is a fan favourite. It is one of the most comfortable pieces in our range and comes in a stunning blue colour.",
+      "tags": ["Couch"],
+      "img": "lounge9.png",
+      "new": false
     },
     {
       "id": "l10",
-      "title": "Lounge 10",
-      "price": 17.99,
+      "title": "Khai couch and stool",
+      "price": 7000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our khai couch and stool comes in a gorgeous pastel blue and fits perfectly into our trending styles of the 2020s.",
+      "tags": ["Couch"],
+      "img": "lounge10.png",
+      "new": false
     },
     {
       "id": "l11",
-      "title": "Lounge 11",
-      "price": 17.99,
+      "title": "Beau TV shelf",
+      "price": 3500,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our Beau TV shelf is a fantastic to your man cave and works incredibly well in a rustic environment.",
+      "tags": ["TV stand"],
+      "img": "lounge11.png",
+      "new": false
     },
     {
       "id": "l12",
-      "title": "Lounge 12",
-      "price": 17.99,
+      "title": "Ava arm chair and side table",
+      "price": 2800,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Ava arm chair side table is an exquisite minimalist piece, perfect for anyone wanting to elevate their living space.",
+      "tags": ["Arm chair"],
+      "img": "lounge12.png",
+      "new": false
     }
   ],
   "bedroom": [
     {
-      "id": "l1",
-      "title": "Lounge 1",
-      "price": 17.99,
+      "id": "b1",
+      "title": "Chloe bed",
+      "price": 10000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1.png"
+      "details": "The Chloe bed is greatly inspired by the designs from coming from Asia. It is chic, mod and dynamic.",
+      "tags": ["Beds"],
+      "img": "bedroom1.png",
+      "new": true
     },
     {
-      "id": "l2",
-      "title": "Lounge 2",
-      "price": 17.99,
+      "id": "b2",
+      "title": "Nora bed",
+      "price": 8000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our Nora bed is our romantically designed bed with a gorgous matching head board and bed bench.",
+      "tags": ["Beds"],
+      "img": "bedroom2.png",
+      "new": false
     },
     {
-      "id": "l3",
-      "title": "Lounge 3",
-      "price": 17.99,
+      "id": "b3",
+      "title": "Stella bed",
+      "price": 4500,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "This incredible white set is our most popular bed set. It is a classically beautiful style and is fit for any King or Queen.",
+      "tags": ["Beds"],
+      "img": "bedroom3.png",
+      "new": false
     },
     {
-      "id": "l4",
-      "title": "Lounge 4",
-      "price": 17.99,
+      "id": "b4",
+      "title": "Willow bed",
+      "price": 6000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our bachelor pad Willow bed is incredibly comfortable and is a gorgeous grey. This is perfect to add to your New York themed home.",
+      "tags": ["Beds"],
+      "img": "bedroom4.png",
+      "new": true
     },
     {
-      "id": "l5",
-      "title": "Lounge 5",
-      "price": 17.99,
+      "id": "b5",
+      "title": "Madison bed side table",
+      "price": 700,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our earthy Madison side table is cute and boho chic. Perfect for the miminalist aesthetic.",
+      "tags": ["Bed side table"],
+      "img": "bedroom5.png",
+      "new": false
     },
     {
-      "id": "l6",
-      "title": "Lounge 6",
-      "price": 17.99,
+      "id": "b6",
+      "title": "Eli bed",
+      "price": 5000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Eli bed is one of our most unique bed designs. It is 5 star hotel quality and trendy style.",
+      "tags": ["Beds"],
+      "img": "bedroom6.png",
+      "new": false
     },
     {
-      "id": "l7",
-      "title": "Lounge 7",
-      "price": 17.99,
+      "id": "b7",
+      "title": "Ivy bed side table",
+      "price": 600,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The gorgeous Iby bed side table is perfect for a rustic styled bedroom and is perfect for those who love dark earthy tones.",
+      "tags": ["Bed side table"],
+      "img": "bedroom7.png",
+      "new": true
     },
     {
-      "id": "l8",
-      "title": "Lounge 8",
-      "price": 17.99,
+      "id": "b8",
+      "title": "Mateo bed",
+      "price": 7000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Mateo bed has an excellently crafted base is magnificent padded head board. This is neutral coloured bed, versatile for any room.",
+      "tags": ["Beds"],
+      "img": "bedroom8.png",
+      "new": false
     },
     {
-      "id": "l9",
-      "title": "Lounge 9",
-      "price": 17.99,
+      "id": "b9",
+      "title": "Santiago bed side table",
+      "price": 1000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Santiago bed side table has a funky design and is a perfect for any masculine creative.",
+      "tags": ["Bed side table"],
+      "img": "bedroom9.png",
+      "new": false
     },
     {
-      "id": "l10",
-      "title": "Lounge 10",
-      "price": 17.99,
+      "id": "b10",
+      "title": "Kairo bed side table",
+      "price": 800,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our simple Kairo bed side table gives a fun cabin feel and works incredibly well in wooden spaces.",
+      "tags": ["Bed side table"],
+      "img": "bedroom10.png",
+      "new": false
     },
     {
-      "id": "l11",
-      "title": "Lounge 11",
-      "price": 17.99,
+      "id": "b11",
+      "title": "Layla bed side table",
+      "price": 400,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our dainty Layla bed side table comes in a gorgeous white colour and and has a beautiful wood finish.",
+      "tags": ["Bed side table"],
+      "img": "bedroom11.png",
+      "new": false
     },
     {
-      "id": "l12",
-      "title": "Lounge 12",
-      "price": 17.99,
+      "id": "b12",
+      "title": "Hazel wardrobe",
+      "price": 1200,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Hazel wardrobe comes in a gorgeous sea blue and is a funky art deco piece to add to your bedroom. ",
+      "tags": ["Wardrobe"],
+      "img": "bedroom12.png",
+      "new": false
     }
   ],
   "dining": [
     {
-      "id": "l1",
-      "title": "Lounge 1",
-      "price": 17.99,
+      "id": "d1",
+      "title": "Mason dining set",
+      "price": 12000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1.png"
+      "details": "The Mason dining set is one of trendiest looks. It is chic and modern as well as hand crafted in Italy.",
+      "tags": ["6 chair dining set"],
+      "img": "dining1.png",
+      "new": true
     },
     {
-      "id": "l2",
-      "title": "Lounge 2",
-      "price": 17.99,
+      "id": "d2",
+      "title": "Keira dining set",
+      "price": 4500,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Keira dining set is a perfect starter set for any new home owners. It boasts comfort and style.",
+      "tags": ["4 chair dining set"],
+      "img": "dining2.png",
+      "new": false
     },
     {
-      "id": "l3",
-      "title": "Lounge 3",
-      "price": 17.99,
+      "id": "d3",
+      "title": "Geovanna dining set",
+      "price": 10000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Geovanna dining set honours family and is the perfect dining set for those who want to host friends and family on the regular. ",
+      "tags": ["Arm chair and dining chair set"],
+      "img": "dining3.png",
+      "new": false
     },
     {
-      "id": "l4",
-      "title": "Lounge 4",
-      "price": 17.99,
+      "id": "d4",
+      "title": "Leo dining set",
+      "price": 15000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "Our Leo set is an ode to the art deco style of the 1920s and is trendy piece for 2020s.",
+      "tags": ["8 chair dining set"],
+      "img": "dining4.png",
+      "new": false
     },
     {
-      "id": "l5",
-      "title": "Lounge 5",
-      "price": 17.99,
+      "id": "d5",
+      "title": "Josephina dining set",
+      "price": 7500,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "A unique and stylish suede chair and metal combination dining set perfect for any occasion and could adapt to many room styles.",
+      "tags": ["6 chair dining set"],
+      "img": "dining5.png",
+      "new": false
     },
     {
-      "id": "l6",
-      "title": "Lounge 6",
-      "price": 17.99,
+      "id": "d6",
+      "title": "Mia dining set",
+      "price": 4000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "This dining set is perfect for both home and office setting. The seating is modern and is perfect for those looking to complete their earthy décor.",
+      "tags": ["6 chair dining set"],
+      "img": "dining6.png",
+      "new": false
     },
     {
-      "id": "l7",
-      "title": "Lounge 7",
-      "price": 17.99,
+      "id": "d7",
+      "title": "Oliver dining set",
+      "price": 6000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Oliver set is brilliant for large groups and large spaces. It boasts a 10 seater and is perfect for any modern dinner party.",
+      "tags": ["10 chair dining set"],
+      "img": "dining7.png",
+      "new": false
     },
     {
-      "id": "l8",
-      "title": "Lounge 8",
-      "price": 17.99,
+      "id": "d8",
+      "title": "Harper dining set",
+      "price": 5000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Harper set is one of our favourite wooden pieces across the entire site. It is well crafted and uses the best wood on the market.",
+      "tags": ["4 chair dining set"],
+      "img": "dining8.png",
+      "new": false
     },
     {
-      "id": "l9",
-      "title": "Lounge 9",
-      "price": 17.99,
+      "id": "d9",
+      "title": "Hunter dining set",
+      "price": 6500,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Hunter set comes with a fantastic bench set and works incredibly well in a bachelor pad. This piece is incredibly verstile and adds a lot of fun to a room.",
+      "tags": ["Bench dining set"],
+      "img": "dining9.png",
+      "new": true
     },
     {
-      "id": "l10",
-      "title": "Lounge 10",
-      "price": 17.99,
+      "id": "d10",
+      "title": "Mila dining set",
+      "price": 8000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 1, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "A classic piece, perfect for the sophisticated home. It comes a gorgeous white fabric for the chairs and the table comes with a unique base.",
+      "tags": ["6 chair dining set"],
+      "img": "dining10.png",
+      "new": false
     },
     {
-      "id": "l11",
-      "title": "Lounge 11",
-      "price": 17.99,
+      "id": "d11",
+      "title": "Wyatt dining set",
+      "price": 4000,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Wyatt set is one of our unique and creative pieces. The chair designs are the latest style from Italy and a incredibly fun piece to add to your dining room.",
+      "tags": ["4 chair dining set"],
+      "img": "dining11.png",
+      "new": true
     },
     {
-      "id": "l12",
-      "title": "Lounge 12",
-      "price": 17.99,
+      "id": "d12",
+      "title": "Nova dining set",
+      "price": 6700,
       "hasStock": true,
-      "details": "This is the product details for Lounge 2, the price is just right",
-      "tags": [],
-      "img": "lounge1"
+      "details": "The Nova set is our only round table dining set. It is a great way to bond with friends and family and is paired with uniquely designed chairs.",
+      "tags": ["6 chair dining set"],
+      "img": "dining12.png",
+      "new": false
     }
   ]
 }

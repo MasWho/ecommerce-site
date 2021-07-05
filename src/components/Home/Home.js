@@ -64,7 +64,17 @@ const Home = () => {
 				}
 			},
 			async (data) => {
-				const modifiedData = await getAllProductImages(data);
+				// Filter for new products for the home page only
+				const filteredData = {};
+				for(const cat in data) {
+					filteredData[cat] = [];
+					for(const product of data[cat]) {
+						if(product.new) {
+							filteredData[cat].push(product);
+						}
+					}
+				}
+				const modifiedData = await getAllProductImages(filteredData);
 				setProductData(modifiedData)
 			}
 		)
