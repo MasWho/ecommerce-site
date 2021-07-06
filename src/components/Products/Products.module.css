@@ -35,6 +35,12 @@
   100% {opacity: 1; display: block;}
 }
 
+/* Toolbar section */
+.toolbar {
+  display: flex;
+  justify-content: center;
+}
+
 /* Product Grid */
 .product-grid {
   display: grid;

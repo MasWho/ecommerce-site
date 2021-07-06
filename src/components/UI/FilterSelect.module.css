@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.option-container {
+  display: flex;
+  align-items: center;
+  gap: 1em
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 5%;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  margin: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 1.3rem;
+  background-color: white;
+  border: 1px #7e7e7e solid;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #DEB200;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: calc(50% - 0.15rem);
+  top: calc(0.6rem - 50%);
+  width: 0.2rem;
+  height: 0.6rem;
+  border: solid white;
+  border-width: 0 0.15rem 0.15rem 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

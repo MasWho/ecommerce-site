@@ -110,6 +110,7 @@ function App() {
 			}
 
 			clearTimeout(logoutTimer)
+			// localStorage.removeItem("products")  // Clear persisted products data
 		}
 	}, [tokenData, dispatch, logoutHandler, authStates.initialLogoutTimer]);
 

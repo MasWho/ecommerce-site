@@ -37,6 +37,27 @@ const useProducts = (type) => {
 
   // Get all products from product catalog in db
 	useEffect(() => {
+		// First check if products data is persisted, if so, then don't make API call
+		const products = JSON.parse(localStorage.getItem("products"));
+		if(products) {
+			const filteredData = {};
+			for(const cat in products) {
+				filteredData[cat] = [];
+				for(const product of products[cat]) {
+					if(type === "product") {
+						filteredData[cat] = [...products[cat]];
+						continue;
+					}
+					// Filter for new products for the home page only
+					if(type === "home" && product.new) {
+						filteredData[cat].push(product);
+					}
+				}
+			}
+			setProductData(filteredData);
+			return;
+		}
+
 		request(
 			"https://ecommerce-site-a5046-default-rtdb.europe-west1.firebasedatabase.app/products.json",
 			{
@@ -61,9 +82,12 @@ const useProducts = (type) => {
 					}
 				}
 				const modifiedData = await getAllProductImages(filteredData);
+				// Persist data
+				localStorage.setItem("products", JSON.stringify(modifiedData));
 				setProductData(modifiedData)
 			}
 		)
+
 	}, [request, getAllProductImages, type]);
 
   return {
