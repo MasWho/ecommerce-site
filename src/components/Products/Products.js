@@ -28,10 +28,12 @@ const Products = () => {
   const [expandCard, setExpandCard] = useState(false);
 	const [expandCardID, setExpandCardID] = useState(null);
 	const [selectedTags, setSelectedTags] = useState({});
+	const [sortFiled, setSortField] = useState("increase");
   
   const {loading, error, productData} = useProducts('product');
 
   const changeTabHandler = (tabID) => {
+		setSelectedTags({});
     setCategory(tabID);
   };
 
@@ -64,6 +66,14 @@ const Products = () => {
 		setSelectedTags(selectedTags)
 	};
 
+	/**
+	 * Set how to sort the data
+	 * @param {String} type 
+	 */
+	const sortPriceHandler = (type) => {
+		setSortField(type);
+	};
+
 	// Get available filter options
 	const filterOptions = [];
 	const uniqueTags = new Set();
@@ -79,6 +89,50 @@ const Products = () => {
 		});
 	}
 
+	// Toolbar for manipulating data on the products page
+	const Toolbar = (
+		<div className={styles.toolbar}>
+			{/* Filter selection */}
+			<FilterSelect 
+				options={filterOptions}
+				changeSelection={filterTagHandler}
+				selected={Object.keys(selectedTags).map(tag => {return {label: tag, value: tag}})}
+			/>
+			{/* Sort by section */}
+			<div className={styles.sort}>
+				<span>Sort by:</span>
+				<button 
+					onClick={sortPriceHandler.bind(null, 'increase')} 
+					style={{color: sortFiled==="increase" ? "#DEB200" : ""}}
+				>
+					Price low to high
+				</button>
+				<span>|</span>
+				<button 
+					onClick={sortPriceHandler.bind(null, 'decrease')} 
+					style={{color: sortFiled==="decrease" ? "#DEB200" : ""}}
+				>
+					Price high to low
+				</button>
+			</div>
+		</div>
+	);
+	
+	/**
+	 * Compare function for sorting
+	 * @param {Number} a 
+	 * @param {Number} b 
+	 * @returns 
+	 */
+	const sortFunc = (a, b, field) => {
+		if(sortFiled === "increase") {
+			return a[field] - b[field];
+		} else {
+			return b[field] - a[field];
+		}
+	};
+
+
   return (
     <div className={styles.container}>
       {/* Banner section */}
@@ -89,18 +143,10 @@ const Products = () => {
 				</h1>
 			</div>
 
-			{/* Toolbar section */}
-			<div className={styles.toolbar}>
-				<FilterSelect 
-					options={filterOptions}
-					changeSelection={filterTagHandler}
-					selected={Object.keys(selectedTags).map(tag => {return {label: tag, value: tag}})}
-				/>
-			</div>
-
       {/* Tabs section */}
       {loading && <Spinner style={{height: "70vh"}}/>}
       {!loading && !error && productData && <TabsContainer
+				toolbar={Toolbar}
         onChangeTab={changeTabHandler}
 				components={{
 					lounge: {
@@ -108,8 +154,8 @@ const Products = () => {
 						component: <ProductGrid1
               products={
 								Object.keys(selectedTags).length
-									? productData['lounge'].filter(product => selectedTags[product.tags[0]])
-									: productData['lounge']
+									? productData['lounge'].filter(product => selectedTags[product.tags[0]]).sort((a, b) => sortFunc(a, b, 'price'))
+									: productData['lounge'].sort((a, b) => sortFunc(a, b, 'price'))
 							}
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
@@ -121,8 +167,8 @@ const Products = () => {
 						component: <ProductGrid2 
 							products={
 								Object.keys(selectedTags).length
-									? productData['bedroom'].filter(product => selectedTags[product.tags[0]])
-									: productData['bedroom']
+									? productData['bedroom'].filter(product => selectedTags[product.tags[0]]).sort((a, b) => sortFunc(a, b, 'price'))
+									: productData['bedroom'].sort((a, b) => sortFunc(a, b, 'price'))
 							}
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
@@ -134,8 +180,8 @@ const Products = () => {
 						component: <ProductGrid3 
 							products={
 								Object.keys(selectedTags).length
-									? productData['dining'].filter(product => selectedTags[product.tags[0]])
-									: productData['dining']
+									? productData['dining'].filter(product => selectedTags[product.tags[0]]).sort((a, b) => sortFunc(a, b, 'price'))
+									: productData['dining'].sort((a, b) => sortFunc(a, b, 'price'))
 							}
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 

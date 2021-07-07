@@ -38,7 +38,33 @@
 /* Toolbar section */
 .toolbar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 1.5%;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.sort span {
+  font-size: 1rem;
+}
+
+.sort button {
+  border: none;
+  background-color: white;
+  font-family: 'Montserrat';
+  font-size: 1rem;
+}
+
+.sort button:hover {
+  cursor: pointer;
+  color: #DEB200;
 }
 
 /* Product Grid */

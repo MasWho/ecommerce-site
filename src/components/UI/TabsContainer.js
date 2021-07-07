@@ -15,7 +15,7 @@ import styles from "./TabsContainer.module.css";
  * @param {Function} onChangeTab
  * @returns
  */
-const TabsContainer = ({ components, onChangeTab }) => {
+const TabsContainer = ({ components, onChangeTab, toolbar }) => {
 	const [activeTab, setActiveTab] = useState(Object.keys(components)[0]);
 
 	/**
@@ -46,6 +46,7 @@ const TabsContainer = ({ components, onChangeTab }) => {
 	return (
 		<>
 			<div className={styles.tabs}>{allTabs}</div>
+			{toolbar && toolbar}
 			{components[activeTab].component}
 		</>
 	);
