@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import HomePage from "./pages/HomePage";
 import AuthPage from "./pages/AuthPage";
 import ProductsPage from "./pages/ProductsPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 import ProfilePage from "./pages/ProfilePage";
 import ErrorPage from "./pages/ErrorPage";
 
@@ -153,7 +154,8 @@ function App() {
 				) : (
 					// Post-login routes
 					<>
-						<Route path={"/products"} component={ProductsPage} />
+						<Route path={"/products"} component={ProductsPage} exact />
+						<Route path={"/products/:category/:id"} component={ProductDetailPage} />
 						<Route path={"/profile"} component={ProfilePage} />
 					</>
 				)}
