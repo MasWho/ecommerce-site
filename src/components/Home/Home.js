@@ -77,6 +77,7 @@ const Home = () => {
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
               expandCardID={expandCardID} 
+							category='lounge'
             />,
 					},
 					bedroom: {
@@ -86,6 +87,7 @@ const Home = () => {
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
               expandCardID={expandCardID} 
+							category='bedroom'
             />,
 					},
 					dining: {
@@ -95,6 +97,7 @@ const Home = () => {
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
               expandCardID={expandCardID} 
+							category='dining'
             />,
 					},
 				}}

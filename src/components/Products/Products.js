@@ -160,6 +160,7 @@ const Products = () => {
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
               expandCardID={expandCardID} 
+							category='lounge'
             />
 					},
 					bedroom: {
@@ -173,6 +174,7 @@ const Products = () => {
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
               expandCardID={expandCardID} 
+							category='bedroom'
             />
 					},
 					dining: {
@@ -186,6 +188,7 @@ const Products = () => {
               onExpandCard={expandCardHandler} 
               expandCard={expandCard} 
               expandCardID={expandCardID} 
+							category='dining'
             />
 					},
 				}}

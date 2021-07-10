@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from "./Input.module.css";
+import styles from "./ProductDetailInput.module.css";
 
 /**
  * Simple input component.
  */
-const Input = React.forwardRef(({ label, input, value, onChange }, ref) => {
+const ProductDetailInput = React.forwardRef(({ label, input, value, onChange }, ref) => {
 	
 	const inputChangeHandler = (e) => {
 		onChange(e.target.value);
@@ -18,4 +18,4 @@ const Input = React.forwardRef(({ label, input, value, onChange }, ref) => {
 	);
 });
 
-export default Input;
+export default ProductDetailInput;

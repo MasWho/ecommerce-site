@@ -35,8 +35,7 @@ const useProducts = (type) => {
 		return modifiedData;
 	}, [firebaseCtx.storageRef]);
 
-  // Get all products from product catalog in db
-	useEffect(() => {
+	const loadData = useCallback(() => {
 		// First check if products data is persisted, if so, then don't make API call
 		const products = JSON.parse(localStorage.getItem("products"));
 		if(products) {
@@ -87,13 +86,18 @@ const useProducts = (type) => {
 				setProductData(modifiedData)
 			}
 		)
+	}, [getAllProductImages, request, type]);
 
-	}, [request, getAllProductImages, type]);
+  // Get all products from product catalog in db
+	useEffect(() => {
+		loadData();
+	}, [loadData]);
 
   return {
     loading,
     error,
-    productData
+    productData,
+		loadData
   };
 };
 

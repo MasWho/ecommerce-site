@@ -4,7 +4,7 @@ import ProductCard from './ProductCard';
 // Styles imports
 import styles from './Products.module.css';
 
-const ProductGrid = ({products, onExpandCard, expandCard, expandCardID}) => {
+const ProductGrid = ({products, onExpandCard, expandCard, expandCardID, category}) => {
   
   const productCards = products.map(product => {
 		return <ProductCard 
@@ -15,6 +15,7 @@ const ProductGrid = ({products, onExpandCard, expandCard, expandCardID}) => {
 			onExpand={onExpandCard.bind(null, product.id)}
 			expandCard={expandCard}
 			expandCardID={expandCardID}
+			category={category}
 		/>
 	});
   

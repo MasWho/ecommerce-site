@@ -1,0 +1,27 @@
+.form {
+  display: flex;
+  align-items: center;
+  column-gap: 1em;
+}
+
+.form button {
+  display: flex;
+  align-items: center;
+  border: 0;
+  height: 2em;
+  background-color: #1B2039;
+  padding: 0.8em;
+  border: #7e7e7e;
+  column-gap: 0.3em;
+}
+
+.form button:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.form button span {
+  font-size: 0.9rem;
+  color: white;
+  font-family: 'Montserrat';
+}

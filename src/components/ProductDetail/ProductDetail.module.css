@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 3% 0;
+  padding-top: 3%;
+  padding-bottom: 1%;
 }
 
+/* Details section */
 .details-container {
   width: 100%;
   background-color: #ededed;
@@ -19,6 +21,11 @@
   margin: 2% 0;
 }
 
+.details-container span:hover {
+  cursor: pointer;
+  color: #DEB200;
+}
+
 .details-inner-container {
   padding: 0 7.5%;
 }
@@ -31,5 +38,59 @@
 }
 
 .product-detail img {
-  width: 50%;
+  height: 55vh;
+}
+
+/* Other products section */
+.other-products-container {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.other-products-container h2 {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+}
+
+.carousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.other-products-container button {
+  background-color: #1B2039;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1em;
+  height: 2em;
+  width: 110px;
+  align-self: center;
+  padding: 12px 10px;
+  margin-top: 3%;
+  border: 0;
+}
+
+.other-products-container button:hover {
+  cursor: pointer;
+  color: #DEB200;
+}
+
+.other-products-container a {
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Montserrat';
+}
+
+.play {
+  border-top: 0.5em solid #1B2039;
+  border-bottom: 0.5em solid #1B2039;
+  border-left: 1em solid #DEB200;
+  height: 0px;
 }

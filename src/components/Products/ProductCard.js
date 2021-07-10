@@ -18,9 +18,10 @@ import { Link } from "react-router-dom";
  * @param {Function} onExpand
  * @param {Bool} expandCard
  * @param {Number} expandCardID
+ * @param {String} category
  * @returns
  */
-const ProductCard = ({ topText, product, height, width, onExpand, expandCard, expandCardID }) => {
+const ProductCard = ({ topText, product, height, width, onExpand, expandCard, expandCardID, category }) => {
 
 	let expandStyles = styles["expand-container"];
 	if (expandCard && product.id === expandCardID) {
@@ -65,7 +66,7 @@ const ProductCard = ({ topText, product, height, width, onExpand, expandCard, ex
 					{/* Expand detail section */}
 					<div className={expandStyles}>
 						<p>{product.details}</p>
-						<Link to="/" className={styles['details-link']}><div className={styles.play}/>Click to learn more</Link>
+						<Link to={`/products/${category}/${product.id}`} className={styles['details-link']}><div className={styles.play}/>Click to learn more</Link>
 					</div>
 				</div>
 			</div>
