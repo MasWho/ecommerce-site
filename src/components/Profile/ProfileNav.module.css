@@ -1,11 +1,11 @@
 .nav-container {
-  padding: 2% 2%;
+  padding: 1.5% 1.5%;
   margin: 0;
   display: flex;
   flex-direction: column;
   row-gap: 1em;
   background-color: #1B2039;
-  width: 15%;
+  min-width: 15%;
 }
 
 .list-item {

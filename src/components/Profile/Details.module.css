@@ -1,0 +1,45 @@
+.form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2em;
+}
+
+.submit {
+  width: 25%;
+  min-height: 2em;
+  margin-top: 1rem;
+  font-family: "Montserrat";
+  color: white;
+  font-size: 1rem;
+  background-color: #1b2039;
+  border: none;
+}
+
+.submit:hover {
+  color: #deb200;
+  cursor: pointer;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(20vh - 2rem);
+  row-gap: 2em;
+}
+
+.modal button {
+  background-color: #1b2039;
+  border: none;
+  color: white;
+  height: 2em;
+  width: 6em;
+  font-family: "Montserrat";
+}
+
+.modal button:hover {
+  color: #deb200;
+  cursor: pointer;
+}

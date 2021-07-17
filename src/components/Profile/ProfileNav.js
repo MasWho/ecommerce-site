@@ -1,6 +1,6 @@
 // Global imports
 import { useRouteMatch, NavLink } from "react-router-dom";
-import { BsFillPeopleFill, BsCardChecklist, BsCardHeading, BsFillShieldLockFill } from "react-icons/bs";
+import { BsFillPeopleFill, BsCardChecklist, BsFillShieldLockFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
 // Style imports
@@ -21,12 +21,6 @@ const ProfileNav = () => {
 					<BsFillPeopleFill />
 					<NavLink activeClassName={styles.active} to={`${url}/details`}>
 						Profile details
-					</NavLink>
-				</li>
-				<li className={styles["list-item"]}>
-					<BsCardHeading />
-					<NavLink activeClassName={styles.active} to={`${url}/current-order`}>
-						Current orders
 					</NavLink>
 				</li>
 				<li className={styles["list-item"]}>

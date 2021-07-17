@@ -1,11 +1,10 @@
 // Global imports
 import { useSelector } from 'react-redux';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import { Switch, Route, useRouteMatch, Redirect } from 'react-router-dom';
 
 // Component imports
 import ProfileNav from './ProfileNav';
 import Details from './Details';
-import CurrentOrder from './CurrentOrder';
 import PastOrders from './PastOrders';
 import EditPassword from './EditPassword';
 
@@ -33,8 +32,8 @@ const Profile = () => {
         <div className={styles['description-container']}>
           <p>Hello {authState.username}</p>
           <p>
-            Please find your information below. You can find your profile's details, current and past orders, 
-            manage your addresses and edit your password
+            Please find your information below. You can find your profile's details, past orders, and 
+            manage password.
           </p>
         </div>
 
@@ -44,8 +43,10 @@ const Profile = () => {
           <ProfileNav />
           {/* Profile related routes */}
           <Switch>
+            <Route path={path} exact>
+              <Redirect to={`${path}/details`}/>
+            </Route>
             <Route path={`${path}/details`} component={Details}/>
-            <Route path={`${path}/current-order`} component={CurrentOrder}/>
             <Route path={`${path}/past-orders`} component={PastOrders}/>
             <Route path={`${path}/password`} component={EditPassword}/>
           </Switch>

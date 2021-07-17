@@ -129,7 +129,8 @@ function App() {
 				(data) => {
 					dispatch(
 						authActions.setAuth({
-							username: data.name
+							username: data.name,
+							email: data.email
 						})
 					);
 				}

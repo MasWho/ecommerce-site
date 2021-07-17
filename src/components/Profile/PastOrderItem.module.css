@@ -1,0 +1,89 @@
+.container {
+  border: 2px solid #deb200;
+  padding: 1.5em;
+  transition: all 0.2s linear;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}
+
+.container:hover {
+  cursor: pointer;
+}
+
+.expand-heading {
+  display: flex;
+  align-items: center;
+  column-gap: 2em;
+}
+
+.expand-body {
+  height: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.expand {
+  height: 100%;
+  visibility: visible;
+  padding: 1.5em;
+}
+
+.items-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5em;
+  width: 80%;
+}
+
+.items-container span {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.item-container {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 2em;
+}
+
+.item-container img {
+  width: 50%;
+}
+
+.item-descriptions {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+}
+
+.item-descriptions h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.item-descriptions span {
+  font-size: 0.7rem;
+  color: #7e7e7e;
+  text-align: left;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5em;
+  width: 50%;
+}
+
+.details-container span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.total-price {
+  text-align: left;
+  padding: 1em 1.5em;
+}

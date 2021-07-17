@@ -11,6 +11,7 @@ const authSlice = createSlice({
         expirationTime: null,
         initialLogoutTimer: null,
         username: null,
+        email: null
     },
     reducers: {
         /**
@@ -25,6 +26,7 @@ const authSlice = createSlice({
             state.initialLogoutTimer = action.payload.initialLogoutTimer || state.initialLogoutTimer;
             state.uid = action.payload.uid || state.uid;
             state.username = action.payload.username || state.username;
+            state.email = action.payload.email || state.email;
         },
 
         /**
@@ -38,6 +40,7 @@ const authSlice = createSlice({
             state.initialLogoutTimer = null;
             state.uid = null;
             state.username = null;
+            state.email = null;
         }
     }
 });
