@@ -10,7 +10,6 @@ const HomeProducts = ({products, onExpandCard, expandCard, expandCardID, categor
 		return <ProductCard 
 			topText="New"
 			product={product}
-			width={'30%'}
 			key={`${product.title}-${product.id}`}
 			onExpand={onExpandCard.bind(null, product.id)}
 			expandCard={expandCard}

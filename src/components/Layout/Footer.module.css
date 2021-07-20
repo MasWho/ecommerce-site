@@ -25,3 +25,12 @@
 	color: #7e7e7e;
 	margin: 0;
 }
+
+/* For phones */
+@media screen and (max-width: 600px) {
+	.footer {
+		flex-direction: column;
+		align-items: center;
+		gap: 1em;
+	}
+}

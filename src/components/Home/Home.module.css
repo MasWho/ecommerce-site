@@ -70,3 +70,29 @@
   0% {opacity: 0.2;}
   100% {opacity: 1;}
 }
+
+/* For phones */
+@media screen and (max-width: 1000px) {
+  .banner-text-container {
+    gap: 2.5%;
+    top: 30%;
+  }
+
+  .banner-main-text {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .banner-text-separator {
+    font-size: 3rem;
+  }
+
+  .banner-sub-text {
+    font-size: 0.9rem;
+  }
+
+  .products {
+    flex-direction: column;
+    gap: 3em;
+  }
+}

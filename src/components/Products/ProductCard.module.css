@@ -1,5 +1,5 @@
 .card-outer-container {
-  width: 300px;
+  width: 30%;
   position: relative;
 }
 
@@ -146,4 +146,12 @@
   border-bottom: 0.3rem solid white;
   border-left: 0.6rem solid #DEB200;
   height: 0px;
+}
+
+/* For phones */
+@media screen and (max-width: 1000px) {
+  .card-outer-container {
+    width: 95%;
+    margin: auto;
+  }
 }

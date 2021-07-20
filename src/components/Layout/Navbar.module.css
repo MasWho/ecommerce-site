@@ -55,3 +55,28 @@
 	font-family: 'Montserrat';
 	color: #DEB200;
 }
+
+/* For phones */
+@media screen and (max-width: 600px) {
+	.header {
+		flex-direction: column;
+		padding: 3.5% 2.5%;
+		gap: 1em;
+	}
+
+	.header nav {
+		width: 100%;
+	}
+
+	.header ul {
+		display: flex;
+		width: 100%;
+		justify-content: space-evenly;
+	}
+
+	.header li {
+		margin: 0;
+		width: 100%;
+		text-align: center;
+	}
+}
