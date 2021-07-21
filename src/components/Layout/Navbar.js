@@ -3,9 +3,12 @@ import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { IconContext } from "react-icons";
 import {BsFillPersonFill} from 'react-icons/bs';
+import { useState } from "react";
 
 // Component imports
 import HeaderCartButton from './HeaderCartButton';
+import Hamburger from "../UI/Hamburger";
+import SideDrawer from "../UI/SideDrawer";
 
 // Styles imports
 import styles from "./Navbar.module.css";
@@ -24,6 +27,8 @@ const Navbar = ({userLoading, userError}) => {
 	const authStates = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 
+	const [drawerOpen, setDrawerOpen] = useState(false);
+
 	const logoutHandler = () => {
 		localStorage.removeItem("token");
 		localStorage.removeItem("expirationTime");
@@ -31,6 +36,7 @@ const Navbar = ({userLoading, userError}) => {
 			clearTimeout(authStates.logoutTimer);
 		}
 		dispatch(authActions.clearAuth());
+		setDrawerOpen(false);
 	};
 
 	// Username icon
@@ -47,6 +53,17 @@ const Navbar = ({userLoading, userError}) => {
 		</IconContext.Provider>
 	);
 
+	/**
+	 * Handle burger click for smaller screen sizes
+	 */
+	const burgerClickHandler = () => {
+		setDrawerOpen(true);
+	};
+
+	const backdropClickHandler = () => {
+		setDrawerOpen(false);
+	};
+
 	return (
 		<header className={styles.header}>
 			{/* Logo */}
@@ -55,25 +72,27 @@ const Navbar = ({userLoading, userError}) => {
 			</Link>
 
 			<nav>
-				<ul>
-					{
-						// Menu for pre login
-						!authStates.isLoggedIn ? (
-							<>
-								<li>
-									<NavLink activeClassName={styles.active} to={"/auth-signup"}>
-										SIGN UP
-									</NavLink>
-								</li>
-								<li>
-									<NavLink activeClassName={styles.active} to={"/auth-login"}>
-										LOGIN
-									</NavLink>
-								</li>
-							</>
-						) : (
-							// Menu for post login
-							<>
+				{
+					// Menu for pre login
+					!authStates.isLoggedIn ? (
+						<ul className={styles["pre-login"]}>
+							<li>
+								<NavLink activeClassName={styles.active} to={"/auth-signup"}>
+									SIGN UP
+								</NavLink>
+							</li>
+							<li>
+								<NavLink activeClassName={styles.active} to={"/auth-login"}>
+									LOGIN
+								</NavLink>
+							</li>
+						</ul>
+					) : (
+						<>
+							{/* Menu for post login */}
+							<ul className={styles["post-login"]}>
+								{/* Hamburger for smaller screen size */}
+								<Hamburger className={styles.burger} onClick={burgerClickHandler}/>
 								<li className={styles.username}>
 									{userNameIcon}
 								</li>
@@ -93,13 +112,36 @@ const Navbar = ({userLoading, userError}) => {
 									</Link>
 								</li>
 								<li>
-									<HeaderCartButton />
+									<HeaderCartButton color="white"/>
 								</li>
-							</>
-						)
-					}
-				</ul>
+							</ul>
+						</>
+					)
+				}
 			</nav>
+			{/* Doesn't matter what it's placed, using portal */}
+			<SideDrawer show={drawerOpen} onClickBackdrop={backdropClickHandler}>
+				<ul className={styles['side-drawer']}>
+					<li>
+						<NavLink activeClassName={styles.active} to={"/products"} onClick={backdropClickHandler}>
+							PRODUCTS
+						</NavLink>
+					</li>
+					<li>
+						<NavLink activeClassName={styles.active} to={"/profile"} onClick={backdropClickHandler}>
+							PROFILE
+						</NavLink>
+					</li>
+					<li>
+						<Link to={"/"} onClick={logoutHandler}>
+							LOGOUT
+						</Link>
+					</li>
+					<li style={{backgroundColor: "#ffffff00"}}>
+						<HeaderCartButton onClick={backdropClickHandler} color="#1b2039" backgroundColor="#ffffff00"/>
+					</li>
+				</ul>
+			</SideDrawer>
 		</header>
 	);
 };

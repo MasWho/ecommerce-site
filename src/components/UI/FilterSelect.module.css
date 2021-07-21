@@ -67,3 +67,9 @@
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+@media screen and (max-width: 1000px) {
+  .checkbox-container .checkmark:after {
+    left: calc(50% - 0.15rem);
+  }
+}

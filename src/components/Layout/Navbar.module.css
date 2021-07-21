@@ -18,7 +18,15 @@
 	list-style: none;
 }
 
-.header ul {
+.header .pre-login {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+}
+
+.header .post-login {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -56,6 +64,31 @@
 	color: #DEB200;
 }
 
+.burger {
+	display: none;
+}
+
+/* Side drawer menu */
+.side-drawer {
+	list-style: none;
+	position: sticky;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	margin: 0;
+	gap: 5em;
+}
+
+.side-drawer a {
+	text-decoration: none;
+	font-family: 'Montserrat';
+	font-size: 1.3em;
+	color: #1b2039;
+}
+
 /* For phones */
 @media screen and (max-width: 600px) {
 	.header {
@@ -68,15 +101,40 @@
 		width: 100%;
 	}
 
-	.header ul {
+	.header .pre-login {
 		display: flex;
 		width: 100%;
 		justify-content: space-evenly;
 	}
 
-	.header li {
+	.header .pre-login li {
 		margin: 0;
 		width: 100%;
 		text-align: center;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.burger {
+		display: block;
+		cursor: pointer;
+	}
+
+	.header .post-login {
+		display: flex;
+		width: 95%;
+		gap: 2em;
+		margin: auto;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.header .post-login li {
+		display: none;
+	}
+
+	.header .post-login li.username {
+		display: flex;
+		margin: 0;
 	}
 }

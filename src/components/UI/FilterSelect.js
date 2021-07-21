@@ -48,7 +48,7 @@ const customStyles = {
 		margin: 0,
 		borderRadius: 0,
 		border: "1px solid #7e7e7e",
-		minWidth: "400px"
+		minWidth: "250px"
 	}),
 	option: (base) => ({
 		...base,
