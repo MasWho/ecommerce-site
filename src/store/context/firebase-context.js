@@ -10,11 +10,13 @@ import "firebase/storage";
 // Firebase context
 const FirebaseContext = createContext({
   storageRef: null
-})
+});
+
+const API_KEY = process.env.REACT_APP_FIREBASE_API_KEY;
 
 // Initializing firebase project for this app
 firebase.initializeApp({
-	apiKey: "AIzaSyAVWLRWQ30C96j4Vh5onNn3tfEdzAV1tWM",
+	apiKey: API_KEY,
 	authDomain: "ecommerce-site-a5046.firebaseapp.com",
 	projectId: "ecommerce-site-a5046",
 	storageBucket: "ecommerce-site-a5046.appspot.com",

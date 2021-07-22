@@ -94,3 +94,32 @@
   border-left: 1em solid #DEB200;
   height: 0px;
 }
+
+/* For phone */
+@media screen and (max-width: 1200px) {
+  .product-detail {
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .product-detail img {
+    height: 100%;
+    width: 100%;
+    margin-top: 1.5em;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .other-products-container {
+    gap: 1em;
+  }
+
+  .other-products-container h2 {
+    text-align: center;
+  }
+
+  .main-heading {
+    text-align: center;
+    padding-top: 0.8em;
+  }
+}

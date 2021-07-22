@@ -16,7 +16,7 @@ const ProfileNav = () => {
 
 	return (
 		<ul className={styles["nav-container"]}>
-			<IconContext.Provider value={{ size: "1.5em", color: "white" }}>
+			<IconContext.Provider value={{ size: "1em", color: "white" }}>
 				<li className={styles["list-item"]}>
 					<BsFillPeopleFill />
 					<NavLink activeClassName={styles.active} to={`${url}/details`}>

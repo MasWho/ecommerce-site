@@ -49,3 +49,8 @@ p {
 
 }
 
+@media screen and (max-width: 1200px) {
+  .card-container {
+    min-width: 100%;
+  }
+}

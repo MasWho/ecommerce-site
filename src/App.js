@@ -2,6 +2,7 @@
 import { useEffect, useCallback, useContext } from "react";
 import { Route, Switch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 // Pages imports
 import HomePage from "./pages/HomePage";
@@ -74,6 +75,8 @@ function App() {
 	const cartCtx = useContext(CartContext);
 
 	const {loading, error, request} = useHttp();
+
+	const history = useHistory();
 	
 	// Retrieve token from local storage if page refreshed
 	const tokenData = retrieveStoredToken();
@@ -85,7 +88,8 @@ function App() {
     localStorage.removeItem('token');
     localStorage.removeItem('expirationTime');
     dispatch(authActions.clearAuth());
-  }, [dispatch]);
+		history.push("/")
+  }, [dispatch, history]);
 
 	useEffect(() => {
 		// If there is a token and it's not expired, then set the state with token
@@ -111,7 +115,6 @@ function App() {
 			}
 
 			clearTimeout(logoutTimer)
-			localStorage.removeItem("products")  // Clear persisted products data
 		}
 	}, [tokenData, dispatch, logoutHandler, authStates.initialLogoutTimer]);
 

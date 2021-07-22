@@ -69,3 +69,37 @@
   cursor: pointer;
   transform: scale(1.2);
 }
+
+@media screen and (max-width: 1200px) {
+  .item-text h3 {
+    font-size: 1rem;
+  }
+
+  .play {
+    border-top: 0.6em solid white;
+    border-bottom: 0.6em solid white;
+    border-left: 1.2em solid #DEB200;
+    height: 0px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .item-text h3 {
+    font-size: 0.9rem;
+    max-width: 8.5em;
+    overflow: hidden;
+  }
+
+  .play {
+    border-top: 0.4em solid white;
+    border-bottom: 0.4em solid white;
+    border-left: 0.8em solid #DEB200;
+    height: 0px;
+  }
+
+  .item-inner-container {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+

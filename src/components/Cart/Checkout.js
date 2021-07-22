@@ -62,7 +62,7 @@ const isFourChars = (value) => value.trim().length === 4;
 const Checkout = ({ onCancel, onSubmit }) => {
 	const cartCtx = useContext(CartContext);
 
-	const { loading, error, request } = useHttp();
+	const { loading, request } = useHttp();
 
 	const uid = useSelector(state => state.auth.uid);
 

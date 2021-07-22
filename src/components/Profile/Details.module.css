@@ -6,7 +6,7 @@
 }
 
 .submit {
-  width: 25%;
+  max-width: 200px;
   min-height: 2em;
   margin-top: 1rem;
   font-family: "Montserrat";

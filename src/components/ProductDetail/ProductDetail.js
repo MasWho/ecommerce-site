@@ -1,6 +1,6 @@
 // Global imports
 import { useHistory, Link } from 'react-router-dom';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useLayoutEffect } from 'react';
 
 // Style imports
 import styles from './ProductDetail.module.css';
@@ -12,6 +12,25 @@ import Carousel from '../UI/Carousel';
 
 // Hooks imports
 import useProducts from '../../hooks/use-products';
+
+
+/**
+ * Custom hook for tracking browser size.
+ * @returns 
+ */
+const useWindowSize = () => {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+  function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
+};
+
 
 /**
  * Component to render product details as well as related products
@@ -27,6 +46,7 @@ const ProductDetail = ({category, id}) => {
   const [slideLeft, setSlideLeft] = useState(false);
   const [slideRight, setSlideRight] = useState(false);
   const history = useHistory();
+  const size = useWindowSize();
 
   let product, otherProducts, totalPages;
   if(productData) {
@@ -88,7 +108,7 @@ const ProductDetail = ({category, id}) => {
           {/* Product details */}
           <div className={styles['details-container']}>
             <div className={styles['details-inner-container']}>
-              <h2><span onClick={() => history.push('/products')}>{category}</span>{` | ${product.title}`}</h2>
+              <h2 className={styles['main-heading']}><span onClick={() => history.push('/products')}>{category}</span>{` | ${product.title}`}</h2>
               <div className={styles['product-detail']}>
                 <img src={product.img} alt=""/>
                 <ProductDetailCard product={product} style={{width: "40%"}}/>
@@ -100,7 +120,7 @@ const ProductDetail = ({category, id}) => {
             <h2>Other {category} items</h2>
             {/* Carousel */}
             <Carousel 
-              perPage={3}
+              perPage={size.windowWidth > 800 ? 3 : 2}
               currentPage={page}
               items={otherProducts}
               onClickItem={clickCarouselItemHandler}

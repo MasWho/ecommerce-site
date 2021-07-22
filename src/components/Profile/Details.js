@@ -164,7 +164,7 @@ const Details = () => {
 					color: "black",
 				}}
 				inputStyle={{
-					minWidth: "50%",
+					minWidth: "400px",
 					height: "2em",
 					color: "black",
 				}}
@@ -183,7 +183,7 @@ const Details = () => {
 					color: "black",
 				}}
 				inputStyle={{
-					minWidth: "50%",
+					minWidth: "400px",
 					height: "2em",
 					color: "black",
 				}}
