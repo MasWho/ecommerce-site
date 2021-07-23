@@ -85,6 +85,11 @@
   color: #7e7e7e;
 }
 
+.title-link:hover {
+  cursor: pointer;
+  color: #DEB200;
+}
+
 /* Expand Section */
 .expand-container {
   position: absolute;

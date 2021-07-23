@@ -75,17 +75,12 @@
   padding: 12px 10px;
   margin-top: 3%;
   border: 0;
+  font-family: 'Montserrat';
 }
 
 .other-products-container button:hover {
   cursor: pointer;
   color: #DEB200;
-}
-
-.other-products-container a {
-  text-decoration: none;
-  color: inherit;
-  font-family: 'Montserrat';
 }
 
 .play {

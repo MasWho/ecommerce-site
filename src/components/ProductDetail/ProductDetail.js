@@ -1,5 +1,5 @@
 // Global imports
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useState, useEffect, useCallback, useLayoutEffect } from 'react';
 
 // Style imports
@@ -57,6 +57,10 @@ const ProductDetail = ({category, id}) => {
     // // Calculate total number of pages within carousel based on 3 items per page
     totalPages = Math.ceil(productData[category].length / 3);
   }
+
+  const viewAllHandler = () => {
+    history.push('/products');
+  };
 
   const clickCarouselItemHandler = (id) => {
     setPage(0);
@@ -129,7 +133,10 @@ const ProductDetail = ({category, id}) => {
               slideLeft={slideLeft}
               slideRight={slideRight}
             />
-            <button><Link to="/products">View all</Link><div className={styles.play}/></button>
+            <button onClick={viewAllHandler}>
+              View all
+              <div className={styles.play}/>
+            </button>
           </div>
         </>
       }

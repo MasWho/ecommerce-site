@@ -7,7 +7,7 @@ import ProductItemForm from "./ProductItemForm";
 // Global imports
 import { BsThreeDots } from "react-icons/bs";
 import { IconContext } from "react-icons";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 /**
  * Card UI component to render products.
@@ -23,12 +23,18 @@ import { Link } from "react-router-dom";
  */
 const ProductCard = ({ topText, product, height, width, onExpand, expandCard, expandCardID, category }) => {
 
+	const history = useHistory();
+
 	let expandStyles = styles["expand-container"];
 	if (expandCard && product.id === expandCardID) {
 		expandStyles = [styles["expand-container"], styles["drawer-open"]].join(" ");
 	} else {
 		expandStyles = [styles["expand-container"], styles["drawer-close"]].join(" ");
 	}
+
+	const clickTitleHandler = (category, id) => {
+		history.push(`/products/${category}/${id}`);
+	};
 
 	return (
 		<div className={styles["card-outer-container"]} style={{ height: height, width: width }}>
@@ -55,7 +61,7 @@ const ProductCard = ({ topText, product, height, width, onExpand, expandCard, ex
 				>
 					<div className={styles["bot-container"]}>
 						<div className={styles["info-container"]}>
-							<h2>{product.title}</h2>
+							<h2 className={styles['title-link']} onClick={clickTitleHandler.bind(null, category, product.id)}>{product.title}</h2>
 							<div className={styles["price-stock"]}>
 								<span>{`ZAR ${product.price}`}</span>
 								<span>{product.hasStock ? "In Stock" : "Out of Stock"}</span>

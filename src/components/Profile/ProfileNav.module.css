@@ -53,3 +53,10 @@
     font-size: 0.8rem;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 1em 0;
+  }
+}

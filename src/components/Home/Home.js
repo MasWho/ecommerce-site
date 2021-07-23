@@ -1,5 +1,6 @@
 // Global import
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 
 // Component imports
 import TabsContainer from "../UI/TabsContainer";
@@ -24,10 +25,16 @@ const Home = () => {
 	const [expandCardID, setExpandCardID] = useState(null);
 
 	const {loading, error, productData} = useProducts('home');
+	
+	const history = useHistory();
 
 	useEffect(() => {
 		setApplyStyle(true);
 	}, []);
+
+	const viewAllHandler = () => {
+		history.push('/products');
+	};
 
 	/**
 	 * Handle card detail expansion click event
@@ -102,6 +109,10 @@ const Home = () => {
 					},
 				}}
 			/>}
+			<button className={styles.button} onClick={viewAllHandler}>
+				View all
+				<div className={styles.play}/>
+			</button>
 		</div>
 	);
 };

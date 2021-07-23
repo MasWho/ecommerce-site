@@ -59,6 +59,34 @@
   animation: fadeIn 1s linear;
 }
 
+.button {
+  background-color: #1B2039;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1em;
+  height: 2em;
+  width: 110px;
+  align-self: center;
+  padding: 12px 10px;
+  margin-top: 3%;
+  border: 0;
+  font-family: 'Montserrat';
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #DEB200;
+}
+
+.play {
+  border-top: 0.5em solid #1B2039;
+  border-bottom: 0.5em solid #1B2039;
+  border-left: 1em solid #DEB200;
+  height: 0px;
+}
+
 /* Animations */
 .move-in {
   transform: translateY(0);
